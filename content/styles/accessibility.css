@@ -1,0 +1,40 @@
+/**
+ * WishView - 접근성 모듈
+ * 스크린 리더 지원 및 접근성 관련 스타일
+ */
+
+/* 접근성 개선 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 고대비 모드 지원 */
+@media (prefers-contrast: high) {
+  :root {
+    --wishview-gray-600: #000000;
+    --wishview-gray-800: #000000;
+  }
+}
+
+/* 모션 감소 설정 */
+@media (prefers-reduced-motion: reduce) {
+  .wishview-modal,
+  .wishview-container,
+  .tab-btn,
+  .btn-primary,
+  .btn-secondary,
+  .tech-tag,
+  .wishview-notification {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

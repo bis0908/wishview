@@ -1,0 +1,85 @@
+/**
+ * WishView - 탭 인터페이스 모듈
+ * 콘텐츠 탭 네비게이션 및 패널 스타일
+ */
+
+/* 콘텐츠 영역 */
+.wishview-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* 탭 인터페이스 */
+.content-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--wishview-gray-200);
+  background: white;
+  padding: 0 var(--wishview-space-6);
+  flex-shrink: 0;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: var(--wishview-space-4) var(--wishview-space-5);
+  font-size: var(--wishview-font-size-base);
+  font-weight: 500;
+  color: var(--wishview-gray-600);
+  cursor: pointer;
+  position: relative;
+  transition: var(--wishview-transition);
+  border-bottom: 2px solid transparent;
+}
+
+.tab-btn:hover {
+  color: var(--wishview-gray-800);
+  background: var(--wishview-gray-50);
+}
+
+.tab-btn:focus {
+  outline: 2px solid var(--wishview-primary);
+  outline-offset: 2px;
+}
+
+.tab-btn.active {
+  color: var(--wishview-primary);
+  border-bottom-color: var(--wishview-primary);
+}
+
+.tab-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.tab-pane {
+  display: none;
+  padding: var(--wishview-space-6);
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+.tab-pane.entering {
+  animation: slideInRight 0.2s ease-out;
+}
+
+/* 스크롤바 스타일 (Webkit 기반 브라우저) */
+.tab-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tab-content::-webkit-scrollbar-track {
+  background: var(--wishview-gray-100);
+}
+
+.tab-content::-webkit-scrollbar-thumb {
+  background: var(--wishview-gray-400);
+  border-radius: 3px;
+}
+
+.tab-content::-webkit-scrollbar-thumb:hover {
+  background: var(--wishview-gray-500);
+}

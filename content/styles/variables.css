@@ -1,0 +1,61 @@
+/**
+ * WishView - CSS 변수 모듈
+ * 모든 디자인 토큰 및 테마 변수 정의
+ */
+
+/* CSS 변수 정의 */
+:root {
+  /* 위시켓 브랜드 컬러 */
+  --wishview-primary: #3BA3C7;
+  --wishview-primary-hover: #2E8BA8;
+  --wishview-primary-light: #E8F4F8;
+
+  /* 그레이스케일 */
+  --wishview-gray-50: #F8F9FA;
+  --wishview-gray-100: #F1F3F4;
+  --wishview-gray-200: #E8EAED;
+  --wishview-gray-300: #DADCE0;
+  --wishview-gray-400: #BDC1C6;
+  --wishview-gray-500: #9AA0A6;
+  --wishview-gray-600: #80868B;
+  --wishview-gray-700: #5F6368;
+  --wishview-gray-800: #3C4043;
+  --wishview-gray-900: #202124;
+
+  /* 상태 컬러 */
+  --wishview-success: #34A853;
+  --wishview-warning: #FBBC04;
+  --wishview-error: #EA4335;
+
+  /* 타이포그래피 */
+  --wishview-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                          Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --wishview-font-size-xs: 12px;
+  --wishview-font-size-sm: 14px;
+  --wishview-font-size-base: 16px;
+  --wishview-font-size-lg: 18px;
+  --wishview-font-size-xl: 20px;
+  --wishview-font-size-2xl: 24px;
+
+  /* 간격 */
+  --wishview-space-1: 4px;
+  --wishview-space-2: 8px;
+  --wishview-space-3: 12px;
+  --wishview-space-4: 16px;
+  --wishview-space-5: 20px;
+  --wishview-space-6: 24px;
+  --wishview-space-8: 32px;
+
+  /* 그림자 */
+  --wishview-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --wishview-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --wishview-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --wishview-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* 애니메이션 */
+  --wishview-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --wishview-transition-slow: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

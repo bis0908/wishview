@@ -1,0 +1,87 @@
+/**
+ * WishView - 반응형 모듈
+ * 미디어 쿼리 및 반응형 레이아웃 스타일
+ */
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .wishview-modal {
+    padding: var(--wishview-space-2);
+  }
+
+  .wishview-container {
+    max-height: 95vh;
+  }
+
+  .wishview-header {
+    padding: var(--wishview-space-4);
+  }
+
+  .project-title {
+    font-size: var(--wishview-font-size-lg);
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr;
+    gap: var(--wishview-space-4);
+  }
+
+  .content-tabs {
+    padding: 0 var(--wishview-space-4);
+  }
+
+  .tab-btn {
+    padding: var(--wishview-space-3) var(--wishview-space-4);
+    font-size: var(--wishview-font-size-sm);
+  }
+
+  .tab-pane {
+    padding: var(--wishview-space-4);
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    justify-content: center;
+  }
+
+  .requirement-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-main {
+    align-items: flex-start;
+  }
+
+  .project-title {
+    font-size: var(--wishview-font-size-base);
+    line-height: 1.4;
+  }
+
+  .project-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--wishview-space-2);
+  }
+
+  .wishview-summary {
+    padding: var(--wishview-space-4);
+  }
+
+  .summary-grid {
+    gap: var(--wishview-space-3);
+  }
+
+  .info-value {
+    font-size: var(--wishview-font-size-base);
+  }
+
+  .budget-value {
+    font-size: var(--wishview-font-size-lg);
+  }
+}

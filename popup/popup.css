@@ -1,0 +1,24 @@
+/**
+ * WishView - 팝업 인터페이스 메인 CSS
+ * 확장 프로그램 아이콘 클릭 시 표시되는 팝업 UI 스타일
+ *
+ * 모듈별 스타일 파일들을 import하여 구성됨
+ */
+
+/* 기본 스타일 및 CSS 변수 */
+@import url('./styles/base.css');
+
+/* 레이아웃 관련 스타일 */
+@import url('./styles/layout.css');
+
+/* 컴포넌트별 스타일 */
+@import url('./styles/header.css');
+@import url('./styles/buttons.css');
+@import url('./styles/projects.css');
+@import url('./styles/forms.css');
+@import url('./styles/modal.css');
+
+/* 유틸리티 스타일 */
+@import url('./styles/animations.css');
+@import url('./styles/responsive.css');
+@import url('./styles/themes.css');

@@ -1,0 +1,12 @@
+/**
+ * WishView - 모달 UI 메인 CSS (현재 사용되지 않음)
+ * Chrome Extension V3에서는 manifest.json에서 개별 CSS 파일들을 직접 로드합니다.
+ *
+ * 이 파일은 @import 방식의 호환성 문제로 인해 사용되지 않으며,
+ * 모든 스타일은 content/styles/ 디렉토리의 개별 파일들에서 로드됩니다.
+ */
+
+/*
+ * 만약 CSS 로딩에 문제가 있다면, utils/dom.js의 applyFallbackStyles() 함수가
+ * 필요한 스타일을 인라인으로 적용합니다.
+ */

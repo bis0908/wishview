@@ -1,0 +1,89 @@
+{
+  "manifest_version": 3,
+  "name": "WishView - 위시켓 프라이빗 매칭 뷰어",
+  "version": "1.0.3",
+  "description": "위시켓 프라이빗 매칭 프로젝트의 숨겨진 업무 내용을 확인할 수 있는 크롬 확장 프로그램",
+
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+
+  "host_permissions": [
+    "https://www.wishket.com/*"
+  ],
+
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.wishket.com/project/*/"],
+      "js": [
+        "utils/parser.js",
+        "utils/dom/security.js",
+        "utils/dom/format.js",
+        "utils/dom/modal.js",
+        "utils/dom/event.js",
+        "utils/dom/fallback.js",
+        "utils/dom/state.js",
+        "utils/dom/misc.js",
+        "utils/dom.js",
+        "utils/storage.js",
+        "content/modules/ConfigManager.js",
+        "content/modules/ProjectDataProcessor.js",
+        "content/modules/DynamicDetector.js",
+        "content/modules/MessageHandler.js",
+        "content/modules/WishViewController.js",
+        "content/content.js"
+      ],
+      "css": [
+        "content/styles/variables.css",
+        "content/styles/modal.css",
+        "content/styles/header.css",
+        "content/styles/summary.css",
+        "content/styles/tabs.css",
+        "content/styles/content-sections.css",
+        "content/styles/buttons.css",
+        "content/styles/notifications.css",
+        "content/styles/animations.css",
+        "content/styles/responsive.css",
+        "content/styles/accessibility.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "WishView - 프라이빗 프로젝트 뷰어",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "32": "assets/icons/icon32.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
+    }
+  },
+
+    "icons": {
+    "16": "assets/icons/icon16.png",
+    "32": "assets/icons/icon32.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+        
+
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/images/*"],
+      "matches": ["https://www.wishket.com/*"]
+    }
+  ],
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; style-src 'self' 'unsafe-inline';"
+  }
+}

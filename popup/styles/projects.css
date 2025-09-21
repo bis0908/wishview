@@ -1,0 +1,65 @@
+/**
+ * WishView - 프로젝트 모듈
+ * 저장된 프로젝트 관련 스타일
+ */
+
+.saved-projects {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.saved-project-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.saved-project-item:hover {
+  background: var(--primary-light);
+  border-color: var(--primary-color);
+}
+
+.project-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.project-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-900);
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-budget {
+  font-size: 11px;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.project-preview-btn {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: var(--border-radius-small);
+  color: var(--gray-500);
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.project-preview-btn:hover {
+  background: var(--gray-200);
+  color: var(--gray-700);
+}

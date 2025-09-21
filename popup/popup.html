@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WishView - 프라이빗 프로젝트 뷰어</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- 헤더 -->
+    <header class="popup-header">
+      <div class="logo-section">
+        <div class="logo-icon">🔍</div>
+        <div class="logo-text">
+          <h1 class="app-name">WishView</h1>
+          <p class="app-description">프라이빗 프로젝트 뷰어</p>
+        </div>
+      </div>
+      <div class="version-badge">v1.0.0</div>
+    </header>
+
+    <!-- 상태 섹션 -->
+    <section class="status-section">
+      <div class="current-page-status" id="currentPageStatus">
+        <div class="status-icon" id="statusIcon">⏳</div>
+        <div class="status-content">
+          <div class="status-title" id="statusTitle">페이지 확인 중...</div>
+          <div class="status-subtitle" id="statusSubtitle">위시켓 프로젝트 페이지인지 확인하고 있습니다.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 액션 섹션 -->
+    <section class="action-section" id="actionSection">
+      <!-- 프라이빗 프로젝트 액션 -->
+      <div class="action-group" id="privateProjectActions" style="display: none;">
+        <button class="btn btn-primary" id="showModalBtn">
+          <span class="btn-icon">🔍</span>
+          프라이빗 정보 보기
+        </button>
+
+        <button class="btn btn-secondary" id="refreshBtn">
+          <span class="btn-icon">🔄</span>
+          새로고침
+        </button>
+      </div>
+
+      <!-- 일반 프로젝트 또는 비활성 상태 액션 -->
+      <div class="action-group" id="generalActions" style="display: none;">
+        <div class="info-message">
+          <p>이 페이지는 프라이빗 매칭 프로젝트가 아니거나 WishView를 사용할 수 없는 페이지입니다.</p>
+        </div>
+
+        <button class="btn btn-outline" id="goToWishketBtn">
+          <span class="btn-icon">🌐</span>
+          위시켓 바로가기
+        </button>
+      </div>
+    </section>
+
+
+    <!-- 설정 섹션 -->
+    <section class="settings-section">
+      <h3 class="section-title">설정</h3>
+
+      <div class="setting-item">
+        <label class="setting-label">
+          <input type="checkbox" id="autoShowToggle" class="setting-checkbox">
+          <span class="setting-text">프라이빗 프로젝트 자동 표시</span>
+        </label>
+      </div>
+
+      <div class="setting-item">
+        <label class="setting-label">
+          <input type="checkbox" id="notificationsToggle" class="setting-checkbox">
+          <span class="setting-text">알림 표시</span>
+        </label>
+      </div>
+
+    </section>
+
+
+    <!-- 하단 링크 -->
+    <footer class="popup-footer">
+      <div class="footer-links">
+        <button class="footer-link" id="feedbackBtn">피드백</button>
+        <button class="footer-link" id="aboutBtn">정보</button>
+      </div>
+    </footer>
+  </div>
+
+  <!-- 로딩 오버레이 -->
+  <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">처리 중...</div>
+  </div>
+
+  <!-- 프로젝트 미리보기 팝오버 -->
+  <div class="project-preview" id="projectPreview" style="display: none;">
+    <div class="preview-header">
+      <h4 class="preview-title" id="previewTitle">프로젝트 제목</h4>
+      <button class="preview-close" id="previewCloseBtn">×</button>
+    </div>
+    <div class="preview-content">
+      <div class="preview-budget" id="previewBudget">예산: 미정</div>
+      <div class="preview-deadline" id="previewDeadline">마감: 미정</div>
+      <div class="preview-tech" id="previewTech">
+        <!-- 기술 스택 태그들 -->
+      </div>
+    </div>
+    <div class="preview-actions">
+      <button class="btn btn-small btn-primary" id="openProjectBtn">열기</button>
+    </div>
+  </div>
+
+  <!-- JS 모듈 파일들 -->
+  <script src="js/StorageHelper.js"></script>
+  <script src="js/DOMHelper.js"></script>
+  <script src="js/MessageHelper.js"></script>
+  <script src="js/UIManager.js"></script>
+  <script src="js/ProjectManager.js"></script>
+  <script src="js/SettingsManager.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

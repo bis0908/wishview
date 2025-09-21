@@ -1,0 +1,77 @@
+/**
+ * WishView - 버튼 모듈
+ * 액션 버튼 및 인터랙션 스타일
+ */
+
+/* 액션 버튼 영역 */
+.wishview-footer {
+  padding: var(--wishview-space-6);
+  border-top: 1px solid var(--wishview-gray-200);
+  background: var(--wishview-gray-50);
+  flex-shrink: 0;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--wishview-space-3);
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--wishview-space-2);
+  padding: var(--wishview-space-3) var(--wishview-space-5);
+  border-radius: 8px;
+  font-size: var(--wishview-font-size-base);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--wishview-transition);
+  text-decoration: none;
+  border: none;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: var(--wishview-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--wishview-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 163, 199, 0.3);
+}
+
+.btn-primary:focus {
+  outline: 2px solid var(--wishview-primary);
+  outline-offset: 2px;
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--wishview-gray-700);
+  border: 1px solid var(--wishview-gray-300);
+}
+
+.btn-secondary:hover {
+  background: var(--wishview-gray-50);
+  border-color: var(--wishview-gray-400);
+  transform: translateY(-1px);
+}
+
+.btn-secondary:focus {
+  outline: 2px solid var(--wishview-primary);
+  outline-offset: 2px;
+}
+
+.btn-icon {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

@@ -1,0 +1,36 @@
+/**
+ * WishView - 알림 모듈
+ * 토스트 알림 및 메시지 컴포넌트 스타일
+ */
+
+/* 알림 컴포넌트 */
+.wishview-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: var(--wishview-shadow-lg);
+  z-index: 1000000;
+  font-family: var(--wishview-font-family);
+  font-size: var(--wishview-font-size-sm);
+  font-weight: 500;
+  max-width: 300px;
+  word-break: keep-all;
+  transition: var(--wishview-transition);
+}
+
+.wishview-notification--success {
+  background: var(--wishview-success);
+  color: white;
+}
+
+.wishview-notification--error {
+  background: var(--wishview-error);
+  color: white;
+}
+
+.wishview-notification--info {
+  background: var(--wishview-primary);
+  color: white;
+}

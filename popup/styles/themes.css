@@ -1,0 +1,40 @@
+/**
+ * WishView - 테마 모듈
+ * 다크 모드 및 고대비 모드 지원 스타일
+ */
+
+/* 다크 모드 지원 (시스템 설정 기준) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --gray-50: #18191A;
+    --gray-100: #242526;
+    --gray-200: #3A3B3C;
+    --gray-300: #4E4F50;
+    --gray-400: #6B6C6D;
+    --gray-500: #8A8B8C;
+    --gray-600: #B0B3B8;
+    --gray-700: #E4E6EA;
+    --gray-800: #F0F2F5;
+    --gray-900: #FFFFFF;
+  }
+
+  body {
+    background: var(--gray-50);
+    color: var(--gray-700);
+  }
+
+  .project-preview {
+    background: var(--gray-100);
+    border-color: var(--gray-300);
+  }
+}
+
+/* 고대비 모드 지원 */
+@media (prefers-contrast: high) {
+  :root {
+    --gray-600: #000000;
+    --gray-700: #000000;
+    --gray-800: #000000;
+    --gray-900: #000000;
+  }
+}

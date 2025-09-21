@@ -1,0 +1,58 @@
+/**
+ * WishView - 요약 정보 모듈
+ * 프로젝트 예산, 기간, 마감일 등 요약 정보 스타일
+ */
+
+/* 요약 정보 영역 */
+.wishview-summary {
+  padding: var(--wishview-space-6);
+  background: linear-gradient(135deg,
+              var(--wishview-primary-light) 0%,
+              rgba(255, 255, 255, 0.8) 100%);
+  flex-shrink: 0;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--wishview-space-6);
+}
+
+.budget-info,
+.duration-info,
+.deadline-info {
+  text-align: center;
+}
+
+.info-label {
+  font-size: var(--wishview-font-size-sm);
+  color: var(--wishview-gray-600);
+  margin-bottom: var(--wishview-space-2);
+  font-weight: 500;
+}
+
+.info-value {
+  font-size: var(--wishview-font-size-lg);
+  font-weight: 700;
+  color: var(--wishview-gray-900);
+  margin-bottom: var(--wishview-space-1);
+}
+
+.budget-value {
+  color: var(--wishview-primary);
+  font-size: var(--wishview-font-size-xl);
+}
+
+.deadline-value {
+  color: var(--wishview-gray-900);
+}
+
+.info-note {
+  font-size: var(--wishview-font-size-xs);
+  color: var(--wishview-gray-500);
+}
+
+.urgency {
+  color: var(--wishview-warning);
+  font-weight: 600;
+}

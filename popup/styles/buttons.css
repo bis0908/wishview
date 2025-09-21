@@ -1,0 +1,81 @@
+/**
+ * WishView - 버튼 모듈
+ * 모든 버튼 스타일 및 상태 정의
+ */
+
+/* 버튼 스타일 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+  min-height: 40px;
+}
+
+.btn:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: var(--gray-100);
+  color: var(--gray-700);
+  border: 1px solid var(--gray-300);
+}
+
+.btn-secondary:hover {
+  background: var(--gray-200);
+  border-color: var(--gray-400);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.btn-outline:hover {
+  background: var(--primary-light);
+}
+
+.btn-text {
+  background: transparent;
+  color: var(--gray-600);
+  border: none;
+  padding: 8px 12px;
+  min-height: auto;
+}
+
+.btn-text:hover {
+  background: var(--gray-100);
+  color: var(--gray-800);
+}
+
+.btn-small {
+  padding: 6px 12px;
+  font-size: 12px;
+  min-height: 32px;
+}
+
+.btn-icon {
+  font-size: 14px;
+}

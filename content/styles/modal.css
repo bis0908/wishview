@@ -1,0 +1,61 @@
+/**
+ * WishView - 모달 레이아웃 모듈
+ * 모달 기본 구조 및 오버레이 스타일
+ */
+
+/* 모달 기본 구조 */
+.wishview-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--wishview-space-4);
+  font-family: var(--wishview-font-family);
+
+  /* 진입 애니메이션 */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.wishview-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.wishview-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  cursor: pointer;
+}
+
+.wishview-container {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--wishview-shadow-xl);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  /* 진입 애니메이션 */
+  transform: scale(0.9) translateY(20px);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wishview-modal.active .wishview-container {
+  transform: scale(1) translateY(0);
+}

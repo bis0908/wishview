@@ -1,0 +1,102 @@
+/**
+ * WishView - 콘텐츠 섹션 모듈
+ * 텍스트 콘텐츠, 기술 스택, 요구사항 등의 스타일
+ */
+
+/* 콘텐츠 섹션 */
+.content-section {
+  margin-bottom: var(--wishview-space-6);
+}
+
+.section-title {
+  font-size: var(--wishview-font-size-lg);
+  font-weight: 600;
+  color: var(--wishview-gray-900);
+  margin: 0 0 var(--wishview-space-4) 0;
+  padding-bottom: var(--wishview-space-2);
+  border-bottom: 1px solid var(--wishview-gray-200);
+}
+
+.formatted-text {
+  font-size: var(--wishview-font-size-base);
+  line-height: 1.6;
+  color: var(--wishview-gray-800);
+  white-space: pre-line;
+}
+
+/* 기술 스택 */
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--wishview-space-2);
+}
+
+.tech-tag {
+  background: var(--wishview-primary-light);
+  color: var(--wishview-primary);
+  padding: var(--wishview-space-2) var(--wishview-space-3);
+  border-radius: 16px;
+  font-size: var(--wishview-font-size-sm);
+  font-weight: 500;
+  transition: var(--wishview-transition);
+}
+
+.tech-tag:hover {
+  transform: scale(1.05);
+  box-shadow: var(--wishview-shadow-sm);
+}
+
+/* 요구사항 탭 */
+.requirement-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--wishview-space-4);
+}
+
+.requirement-item {
+  background: var(--wishview-gray-50);
+  padding: var(--wishview-space-4);
+  border-radius: 8px;
+  border: 1px solid var(--wishview-gray-200);
+}
+
+.req-label {
+  font-size: var(--wishview-font-size-sm);
+  color: var(--wishview-gray-600);
+  margin-bottom: var(--wishview-space-2);
+  font-weight: 500;
+}
+
+.req-value {
+  font-size: var(--wishview-font-size-base);
+  color: var(--wishview-gray-900);
+  font-weight: 600;
+}
+
+/* 회사 정보 */
+.company-info {
+  background: var(--wishview-gray-50);
+  padding: var(--wishview-space-6);
+  border-radius: 8px;
+  border: 1px solid var(--wishview-gray-200);
+  text-align: center;
+}
+
+.company-name {
+  font-size: var(--wishview-font-size-xl);
+  font-weight: 700;
+  color: var(--wishview-gray-900);
+  margin-bottom: var(--wishview-space-4);
+}
+
+.company-link a {
+  color: var(--wishview-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--wishview-transition);
+}
+
+.company-link a:hover {
+  color: var(--wishview-primary-hover);
+  text-decoration: underline;
+}

@@ -1,0 +1,16 @@
+/**
+ * WishView - 애니메이션 모듈
+ * 키프레임 애니메이션 및 트랜지션 정의
+ */
+
+/* 탭 전환 애니메이션 */
+@keyframes slideInRight {
+  from {
+    transform: translateX(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

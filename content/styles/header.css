@@ -1,0 +1,82 @@
+/**
+ * WishView - 헤더 모듈
+ * 모달 헤더 및 프로젝트 메타 정보 스타일
+ */
+
+/* 헤더 영역 */
+.wishview-header {
+  padding: var(--wishview-space-6);
+  border-bottom: 1px solid var(--wishview-gray-200);
+  background: var(--wishview-gray-50);
+  flex-shrink: 0;
+}
+
+.header-main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--wishview-space-4);
+}
+
+.project-title {
+  font-size: var(--wishview-font-size-xl);
+  font-weight: 700;
+  color: var(--wishview-gray-900);
+  margin: 0;
+  line-height: 1.3;
+  word-break: keep-all;
+}
+
+.project-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--wishview-space-3);
+  margin-top: var(--wishview-space-2);
+}
+
+.project-id {
+  font-size: var(--wishview-font-size-sm);
+  color: var(--wishview-gray-600);
+  background: var(--wishview-gray-200);
+  padding: var(--wishview-space-1) var(--wishview-space-2);
+  border-radius: 4px;
+}
+
+.project-status {
+  font-size: var(--wishview-font-size-sm);
+  color: var(--wishview-primary);
+  background: var(--wishview-primary-light);
+  padding: var(--wishview-space-1) var(--wishview-space-2);
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  padding: var(--wishview-space-2);
+  cursor: pointer;
+  border-radius: 6px;
+  color: var(--wishview-gray-600);
+  transition: var(--wishview-transition);
+  flex-shrink: 0;
+}
+
+.close-btn:hover {
+  background: var(--wishview-gray-200);
+  color: var(--wishview-gray-800);
+}
+
+.close-btn:focus {
+  outline: 2px solid var(--wishview-primary);
+  outline-offset: 2px;
+}
+
+.close-icon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}

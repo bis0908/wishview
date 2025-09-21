@@ -1,0 +1,162 @@
+/**
+ * WishView - 레이아웃 모듈
+ * 메인 컨테이너 및 섹션 레이아웃 스타일
+ */
+
+/* 메인 컨테이너 */
+.popup-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 상태 섹션 */
+.status-section {
+  padding: 16px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.current-page-status {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.status-icon {
+  font-size: 20px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.status-content {
+  flex: 1;
+}
+
+.status-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+}
+
+.status-subtitle {
+  font-size: 12px;
+  color: var(--gray-600);
+  line-height: 1.4;
+}
+
+/* 액션 섹션 */
+.action-section {
+  padding: 16px;
+}
+
+.action-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.info-message {
+  background: var(--gray-50);
+  padding: 12px;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--gray-200);
+  margin-bottom: 12px;
+}
+
+.info-message p {
+  font-size: 12px;
+  color: var(--gray-600);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* 저장된 프로젝트 섹션 */
+.saved-section {
+  padding: 16px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 12px;
+}
+
+/* 설정 섹션 */
+.settings-section {
+  padding: 16px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.setting-item {
+  margin-bottom: 12px;
+}
+
+.setting-item:last-child {
+  margin-bottom: 0;
+}
+
+/* 통계 섹션 */
+.stats-section {
+  padding: 16px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 12px;
+  background: var(--gray-50);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--gray-200);
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--gray-600);
+}
+
+/* 하단 링크 */
+.popup-footer {
+  padding: 12px 16px;
+  background: var(--gray-50);
+  border-top: 1px solid var(--gray-200);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.footer-link {
+  background: none;
+  border: none;
+  color: var(--gray-600);
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--transition);
+  font-family: inherit;
+}
+
+.footer-link:hover {
+  color: var(--primary-color);
+}
