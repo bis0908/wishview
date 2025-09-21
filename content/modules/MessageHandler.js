@@ -19,7 +19,6 @@ class MessageHandler {
     if (typeof chrome !== 'undefined' && chrome.runtime && !this.isListenerRegistered) {
       chrome.runtime.onMessage.addListener(this.handleRuntimeMessage);
       this.isListenerRegistered = true;
-      // console.log('Chrome Extension 메시지 리스너 등록 완료');
     }
   }
 
@@ -31,7 +30,6 @@ class MessageHandler {
    * @returns {boolean} 비동기 응답 여부
    */
   handleRuntimeMessage(message, sender, sendResponse) {
-    // console.log('메시지 수신:', message);
 
     try {
       switch (message.type) {
@@ -63,7 +61,6 @@ class MessageHandler {
           sendResponse({ success: false, error: 'Unknown message type' });
       }
     } catch (error) {
-      console.error('메시지 처리 중 오류:', error);
       sendResponse({ success: false, error: error.message });
     }
 
@@ -193,7 +190,6 @@ class MessageHandler {
       const updatedSettings = this.configManager.updateSettings(currentSettings, newSettings);
       await this.configManager.saveUserSettings(updatedSettings);
 
-      // console.log('설정 업데이트 완료:', updatedSettings);
       sendResponse({ success: true, settings: updatedSettings });
     } catch (error) {
       sendResponse({
@@ -221,7 +217,6 @@ class MessageHandler {
             await this.projectProcessor.extractAndShowProject(settings);
           }
         } catch (error) {
-          console.error('강제 새로고침 중 재검사 실패:', error);
         }
       }, 100);
 
@@ -263,7 +258,6 @@ class MessageHandler {
     if (typeof chrome !== 'undefined' && chrome.runtime && this.isListenerRegistered) {
       chrome.runtime.onMessage.removeListener(this.handleRuntimeMessage);
       this.isListenerRegistered = false;
-      // console.log('Chrome Extension 메시지 리스너 해제 완료');
     }
   }
 
@@ -287,7 +281,6 @@ class MessageHandler {
     this.removeMessageListeners();
     this.projectProcessor = null;
     this.configManager = null;
-    // console.log('MessageHandler 해제 완료');
   }
 }
 

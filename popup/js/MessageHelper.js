@@ -19,7 +19,6 @@ class MessageHelper {
 
       chrome.tabs.sendMessage(tabId, message, (response) => {
         if (chrome.runtime.lastError) {
-          console.warn('Content Script 메시지 전송 실패:', chrome.runtime.lastError.message);
           resolve(null);
         } else {
           resolve(response);
@@ -131,7 +130,6 @@ class MessageHelper {
         };
       }
     } catch (error) {
-      console.error('Content Script 통신 실패:', error);
       return {
         status: 'waiting',
         title: '연결 대기 중',
@@ -151,7 +149,6 @@ class MessageHelper {
       const response = await this.sendToContentScript({ type: 'SHOW_MODAL' }, tab.id);
       return response?.success || false;
     } catch (error) {
-      console.error('모달 표시 요청 실패:', error);
       return false;
     }
   }
@@ -166,7 +163,6 @@ class MessageHelper {
       const response = await this.sendToContentScript({ type: 'FORCE_REFRESH' }, tab.id);
       return response?.success || false;
     } catch (error) {
-      console.error('새로고침 요청 실패:', error);
       return false;
     }
   }
@@ -185,7 +181,6 @@ class MessageHelper {
       }, tab.id);
       return response?.success || false;
     } catch (error) {
-      console.error('설정 업데이트 알림 실패:', error);
       return false;
     }
   }

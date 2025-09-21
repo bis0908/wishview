@@ -26,7 +26,6 @@ class WishViewController {
   async initialize() {
     // 중복 초기화 방지
     if (this.isInitialized) {
-      console.warn('WishViewController가 이미 초기화되어 있습니다.');
       return true;
     }
 
@@ -44,7 +43,6 @@ class WishViewController {
    */
   async _doInitialize() {
     try {
-      // console.log('WishView 컨트롤러 초기화 시작...');
 
       // 1. DOM 준비 대기
       await this.waitForDOMReady();
@@ -67,7 +65,6 @@ class WishViewController {
       this.setupMessageListeners();
 
       this.isInitialized = true;
-      // console.log('WishView 컨트롤러 초기화 완료');
       return true;
 
     } catch (error) {
@@ -110,7 +107,6 @@ class WishViewController {
 
     for (const dep of dependencies) {
       if (!window[dep]) {
-        console.error(`의존성 ${dep}이 로드되지 않았습니다.`);
         return false;
       }
     }
@@ -138,9 +134,7 @@ class WishViewController {
         this.configManager
       );
 
-      // console.log('모든 모듈 인스턴스 생성 완료');
     } catch (error) {
-      console.error('모듈 인스턴스 생성 실패:', error);
       throw error;
     }
   }
@@ -156,15 +150,11 @@ class WishViewController {
         const result = await this.projectProcessor.extractAndShowProject(settings);
 
         if (result.success) {
-          // console.log('초기 프로젝트 검사 완료 - 프로젝트 활성화됨');
         } else {
-          // console.log('초기 프로젝트 검사 완료 - 활성화 조건 미충족:', result.reason);
         }
       } else {
-        // console.log('초기 프로젝트 검사 완료 - WishView 활성화 조건 미충족');
       }
     } catch (error) {
-      console.warn('초기 프로젝트 검사 중 오류 (계속 진행):', error);
     }
   }
 
@@ -174,7 +164,6 @@ class WishViewController {
   setupDynamicDetection() {
     if (this.dynamicDetector) {
       this.dynamicDetector.initialize();
-      // console.log('동적 감지 시스템 설정 완료');
     }
   }
 
@@ -184,7 +173,6 @@ class WishViewController {
   setupMessageListeners() {
     if (this.messageHandler) {
       this.messageHandler.setupMessageListeners();
-      // console.log('메시지 리스너 설정 완료');
     }
   }
 
@@ -194,7 +182,6 @@ class WishViewController {
    */
   async handlePageChange(changeType) {
     try {
-      // console.log(`페이지 변경 처리: ${changeType}`);
 
       // 기존 모달 정리
       this.projectProcessor.cleanup();
@@ -235,7 +222,6 @@ class WishViewController {
    */
   async forceRefresh() {
     try {
-      // console.log('강제 새로고침 시작...');
 
       // 기존 상태 정리
       this.projectProcessor?.cleanup();
@@ -243,7 +229,6 @@ class WishViewController {
       // 재검사 실행
       await this.performInitialCheck();
 
-      // console.log('강제 새로고침 완료');
     } catch (error) {
       this.handleError(error, 'FORCE_REFRESH');
     }
@@ -264,7 +249,6 @@ class WishViewController {
       const updatedSettings = this.configManager.updateSettings(currentSettings, newSettings);
       await this.configManager.saveUserSettings(updatedSettings);
 
-      // console.log('설정 업데이트 완료:', updatedSettings);
       return updatedSettings;
     } catch (error) {
       this.handleError(error, 'SETTINGS_UPDATE');
@@ -279,7 +263,6 @@ class WishViewController {
    */
   handleError(error, context = '') {
     const errorCode = `WISHVIEW_${context.toUpperCase()}_ERROR`;
-    console.error(`${errorCode}:`, error);
 
     const errorMessages = {
       INITIALIZATION: '확장 프로그램 초기화 중 오류가 발생했습니다.',
@@ -310,7 +293,6 @@ class WishViewController {
    * 리소스 정리 및 인스턴스 해제
    */
   destroy() {
-    // console.log('WishView 컨트롤러 해제 시작...');
 
     // 동적 감지 시스템 해제
     if (this.dynamicDetector) {
@@ -337,7 +319,6 @@ class WishViewController {
     this.isInitialized = false;
     this.initializationPromise = null;
 
-    // console.log('WishView 컨트롤러 해제 완료');
   }
 }
 

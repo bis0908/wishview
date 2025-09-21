@@ -22,11 +22,9 @@ class ConfigManager {
         const settings = await window.StorageHelper.getUserSettings();
         return this.validateSettings(settings);
       } else {
-        console.warn('StorageHelper를 사용할 수 없어 기본 설정을 사용합니다.');
         return this.defaultSettings;
       }
     } catch (error) {
-      console.warn('설정 로드 실패, 기본값 사용:', error);
       return this.defaultSettings;
     }
   }
@@ -42,14 +40,11 @@ class ConfigManager {
 
       if (window.StorageHelper) {
         await window.StorageHelper.saveUserSettings(validatedSettings);
-        // console.log('설정 저장 완료:', validatedSettings);
         return validatedSettings;
       } else {
-        console.warn('StorageHelper를 사용할 수 없어 설정 저장에 실패했습니다.');
         return validatedSettings;
       }
     } catch (error) {
-      console.error('설정 저장 실패:', error);
       throw error;
     }
   }

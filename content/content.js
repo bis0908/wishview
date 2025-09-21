@@ -78,7 +78,6 @@
       }
 
     } catch (error) {
-      console.error('WishView 시스템 초기화 실패:', error);
 
       // 사용자에게 알림 (DOMHelper가 있는 경우)
       if (window.DOMHelper) {
@@ -108,7 +107,6 @@
       // console.log('WishView Content Script 초기화 완료');
 
     } catch (error) {
-      console.error('WishView Content Script 초기화 실패:', error);
 
       // 개발자 모드에서 추가 디버깅 정보 제공
       if (chrome.runtime?.getManifest()?.key === undefined) {
@@ -148,7 +146,6 @@ if (typeof window !== 'undefined') {
       await window.wishViewInstance.forceRefresh();
       // console.log('WishView 강제 새로고침 완료');
     } else {
-      console.warn('WishView 인스턴스가 없습니다.');
     }
   };
 
@@ -166,10 +163,8 @@ if (typeof window !== 'undefined') {
         window.wishViewInstance = controller;
         // console.log('WishView 재시작 완료');
       } else {
-        console.error('WishView 재시작 실패');
       }
     } catch (error) {
-      console.error('WishView 재시작 중 오류:', error);
     }
   };
 }

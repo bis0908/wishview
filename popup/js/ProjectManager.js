@@ -20,7 +20,6 @@ class ProjectManager {
       DOMHelper.showSuccessMessage('프로젝트가 삭제되었습니다.');
       return true;
     } catch (error) {
-      console.error('프로젝트 삭제 실패:', error);
       return false;
     }
   }
@@ -78,7 +77,6 @@ class ProjectManager {
         throw new Error('현재 페이지에서 모달을 표시할 수 없습니다.');
       }
     } catch (error) {
-      console.error('모달 표시 실패:', error);
       throw error;
     }
   }
@@ -99,7 +97,6 @@ class ProjectManager {
         throw new Error('새로고침에 실패했습니다.');
       }
     } catch (error) {
-      console.error('새로고침 실패:', error);
       throw error;
     }
   }

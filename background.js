@@ -66,7 +66,6 @@ class WishViewBackground {
         await this.handleUpdate(details.previousVersion);
       }
     } catch (error) {
-      console.error('설치/업데이트 처리 실패:', error);
     }
   }
 
@@ -179,11 +178,9 @@ class WishViewBackground {
           break;
 
         default:
-          console.warn('알 수 없는 메시지 타입:', message.type);
           sendResponse({ success: false, error: 'Unknown message type' });
       }
     } catch (error) {
-      console.error('메시지 처리 실패:', error);
       sendResponse({ success: false, error: error.message });
     }
   }
@@ -254,7 +251,6 @@ class WishViewBackground {
         break;
 
       default:
-        console.warn('알 수 없는 알람:', alarm.name);
     }
   }
 
@@ -323,7 +319,6 @@ class WishViewBackground {
       await this.cleanupOldSavedProjects();
 
     } catch (error) {
-      console.error('정리 작업 실패:', error);
     }
   }
 
@@ -369,7 +364,6 @@ class WishViewBackground {
       await this.cleanupOldBackups();
 
     } catch (error) {
-      console.error('데이터 백업 실패:', error);
     }
   }
 
@@ -409,7 +403,6 @@ class WishViewBackground {
       this.errorLogs = this.errorLogs.slice(-500);
     }
 
-    console.error('에러 보고 수신:', errorLog);
 
     // 치명적 에러인 경우 배지로 표시
     if (error.context === 'CRITICAL') {
@@ -427,7 +420,6 @@ class WishViewBackground {
         await chrome.action.setBadgeBackgroundColor({ color, tabId });
       }
     } catch (error) {
-      console.warn('배지 업데이트 실패:', error);
     }
   }
 
@@ -440,7 +432,6 @@ class WishViewBackground {
         await chrome.action.setBadgeText({ text: '', tabId });
       }
     } catch (error) {
-      console.warn('배지 제거 실패:', error);
     }
   }
 

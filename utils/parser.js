@@ -50,7 +50,6 @@ class JSONLDParser {
         // 로컬 파일 경로 패턴 감지
         let jsonData;
         if (this.containsLocalFilePath(textContent)) {
-          console.warn('JSON-LD 데이터에 로컬 파일 경로 감지, 필터링 중...');
           // 로컬 파일 경로 제거
           const sanitizedContent = this.sanitizeLocalFilePaths(textContent);
           jsonData = JSON.parse(sanitizedContent);
@@ -64,21 +63,12 @@ class JSONLDParser {
           return this.validateJobPostingData(jsonData);
         }
       } catch (error) {
-        // 상세 오류 정보 로깅
-        console.error('JSON-LD 파싱 오류 상세 정보:', {
-          error: error.message,
-          stack: error.stack,
-          textLength: secondScript.textContent?.length || 0,
-          preview: secondScript.textContent?.substring(0, 200) + '...'
-        });
-
         // 폴백 전략: 기본 구조로 시도
         try {
           const fallbackData = this.createFallbackJobPosting();
-          console.warn('JSON-LD 파싱 실패, 폴백 데이터 사용');
           return fallbackData;
         } catch (fallbackError) {
-          console.error('폴백 데이터 생성 실패:', fallbackError);
+          // 폴백 실패시 null 반환
         }
       }
     }
@@ -133,8 +123,9 @@ class JSONLDParser {
     const requiredFields = ['title', 'description'];
     const missingFields = requiredFields.filter(field => !jsonData[field]);
 
+    // 필수 필드 검사는 계속 수행하되 로깅은 제거
     if (missingFields.length > 0) {
-      console.warn('필수 필드 누락:', missingFields);
+      // 필수 필드가 누락되었지만 계속 진행
     }
 
     // 안전한 데이터만 반환
@@ -454,8 +445,9 @@ class JSONLDParser {
 
     const isValid = Object.values(validation).every(check => check === true);
 
+    // 데이터 검증 실패시에도 로깅 없이 결과만 반환
     if (!isValid) {
-      console.warn('프로젝트 데이터 검증 실패:', validation);
+      // 검증 실패했지만 계속 진행
     }
 
     return {
@@ -492,9 +484,7 @@ class JSONLDParser {
       // 5. 데이터 검증
       const validationResult = this.validateProjectData(projectData);
 
-      if (!validationResult.isValid) {
-        console.warn('데이터 검증 경고:', validationResult.checks);
-      }
+      // 검증 결과에 관계없이 데이터 반환
 
       return {
         success: true,
@@ -503,7 +493,6 @@ class JSONLDParser {
       };
 
     } catch (error) {
-      console.error('프로젝트 데이터 추출 실패:', error);
       return {
         success: false,
         error: error.message,

@@ -22,7 +22,6 @@ class ProjectDataProcessor {
       autoShowEnabled: settings?.autoShow !== false
     };
 
-    // console.log('WishView 활성화 체크:', checks);
     return Object.values(checks).every(check => check === true);
   }
 
@@ -33,7 +32,6 @@ class ProjectDataProcessor {
    */
   async extractAndShowProject(settings) {
     try {
-      // console.log('프로젝트 데이터 추출 시작...');
 
       // 의존성 검사
       if (!this.validateDependencies()) {
@@ -42,7 +40,6 @@ class ProjectDataProcessor {
 
       // 1. 모집 종료 프로젝트 체크 (최우선)
       if (window.JSONLDParser.isClosedProject()) {
-        // console.log('모집 종료된 프로젝트 감지됨');
         if (window.DOMHelper) {
           window.DOMHelper.showNotification('이미 모집 마감한 프로젝트입니다.', 'info');
         }
@@ -62,7 +59,6 @@ class ProjectDataProcessor {
       }
 
       this.currentProjectData = validatedData;
-      // console.log('추출 및 검증된 프로젝트 데이터:', this.currentProjectData);
 
       // 3. 모달 생성 및 표시
       this.modalElement = window.DOMHelper.createAndShowModal(this.currentProjectData);
@@ -82,7 +78,6 @@ class ProjectDataProcessor {
       };
 
     } catch (error) {
-      console.error('프로젝트 데이터 추출 중 오류:', error);
       return {
         success: false,
         error: error.message,
@@ -97,12 +92,10 @@ class ProjectDataProcessor {
    */
   validateDependencies() {
     if (!window.JSONLDParser) {
-      console.error('JSONLDParser가 로드되지 않았습니다.');
       return false;
     }
 
     if (!window.DOMHelper) {
-      console.error('DOMHelper가 로드되지 않았습니다.');
       return false;
     }
 
@@ -116,7 +109,6 @@ class ProjectDataProcessor {
    */
   validateAndSanitizeProjectData(data) {
     if (!data || typeof data !== 'object') {
-      console.error('프로젝트 데이터가 유효하지 않습니다:', data);
       return null;
     }
 
@@ -125,13 +117,11 @@ class ProjectDataProcessor {
     const missingFields = requiredFields.filter(field => !data[field]);
 
     if (missingFields.length > 0) {
-      console.error('필수 필드 누락:', missingFields);
       return null;
     }
 
     // 로컬 파일 경로 패턴 검사
     if (this.containsUnsafeContent(data)) {
-      console.warn('안전하지 않은 콘텐츠 감지, 정리 중...');
       return this.sanitizeProjectData(data);
     }
 
@@ -207,13 +197,11 @@ class ProjectDataProcessor {
   async updateStats(settings) {
     try {
       if (!window.StorageHelper) {
-        console.warn('StorageHelper를 사용할 수 없어 통계 업데이트를 건너뜁니다.');
         return;
       }
 
 
     } catch (error) {
-      console.warn('통계 업데이트 실패:', error);
     }
   }
 

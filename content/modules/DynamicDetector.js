@@ -19,7 +19,6 @@ class DynamicDetector {
    */
   initialize() {
     if (this.isInitialized) {
-      console.warn('DynamicDetector가 이미 초기화되어 있습니다.');
       return;
     }
 
@@ -34,9 +33,7 @@ class DynamicDetector {
       this.setupMutationObserver();
 
       this.isInitialized = true;
-      // console.log('DynamicDetector 초기화 완료');
     } catch (error) {
-      console.error('DynamicDetector 초기화 실패:', error);
     }
   }
 
@@ -48,7 +45,6 @@ class DynamicDetector {
     this.debouncedUrlCheck = window.DOMHelper?.debounce(() => {
       if (window.location.href !== this.currentUrl) {
         this.currentUrl = window.location.href;
-        // console.log('URL 변경 감지:', this.currentUrl);
         this.handlePageChange('url_change');
       }
     }, 500);
@@ -63,8 +59,7 @@ class DynamicDetector {
       this.debouncedUrlCheck = this.createDebounce(() => {
         if (window.location.href !== this.currentUrl) {
           this.currentUrl = window.location.href;
-          // console.log('URL 변경 감지:', this.currentUrl);
-          this.handlePageChange('url_change');
+            this.handlePageChange('url_change');
         }
       }, 500);
     }
@@ -123,7 +118,6 @@ class DynamicDetector {
     this.observer = new MutationObserver((mutations) => {
       for (const mutation of mutations) {
         if (this.shouldTriggerRecheck(mutation)) {
-          // console.log('DOM 변경 감지 - 재검사 트리거:', mutation.type);
           this.debouncedDomCheck();
           break;
         }
@@ -151,13 +145,11 @@ class DynamicDetector {
 
       // 프라이빗 박스 동적 추가 감지
       if (node.querySelector && node.querySelector('.float-private-box')) {
-        // console.log('프라이빗 박스 동적 추가 감지');
         return true;
       }
 
       // JSON-LD 스크립트 추가 감지
       if (node.tagName === 'SCRIPT' && node.type === 'application/ld+json') {
-        // console.log('JSON-LD 스크립트 동적 추가 감지');
         return true;
       }
 
@@ -171,7 +163,6 @@ class DynamicDetector {
    */
   handlePageChange(changeType) {
     try {
-      // console.log(`페이지 변경 처리: ${changeType}`);
 
       if (typeof this.onPageChange === 'function') {
         // DOM 업데이트 대기 후 콜백 실행
@@ -180,10 +171,8 @@ class DynamicDetector {
           this.onPageChange(changeType);
         }, delay);
       } else {
-        console.warn('onPageChange 콜백이 정의되지 않았습니다.');
       }
     } catch (error) {
-      console.error('페이지 변경 처리 중 오류:', error);
     }
   }
 
@@ -194,7 +183,6 @@ class DynamicDetector {
     if (this.observer) {
       this.observer.disconnect();
     }
-    // console.log('DynamicDetector 일시 중지');
   }
 
   /**
@@ -203,7 +191,6 @@ class DynamicDetector {
   resume() {
     if (this.isInitialized) {
       this.setupMutationObserver();
-      // console.log('DynamicDetector 재개');
     }
   }
 
@@ -246,7 +233,6 @@ class DynamicDetector {
     this.debouncedUrlCheck = null;
     this.debouncedDomCheck = null;
 
-    // console.log('DynamicDetector 해제 완료');
   }
 }
 

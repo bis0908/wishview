@@ -81,7 +81,6 @@ class WishViewPopup {
       this.uiManager.hideLoading();
 
     } catch (error) {
-      console.error('팝업 초기화 실패:', error);
       this.uiManager.showError('초기화 중 오류가 발생했습니다.');
       this.uiManager.hideLoading();
     }
@@ -224,7 +223,6 @@ class WishViewPopup {
     try {
       this.settings = await SettingsManager.updateSetting(key, value, this.currentTab);
     } catch (error) {
-      console.error('설정 업데이트 실패:', error);
     }
   }
 

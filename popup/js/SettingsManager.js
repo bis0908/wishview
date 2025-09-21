@@ -12,7 +12,6 @@ class SettingsManager {
     try {
       return await StorageHelper.getUserSettings();
     } catch (error) {
-      console.error('설정 로드 실패:', error);
       return {
         autoShow: true,
         showNotifications: true,
@@ -44,10 +43,8 @@ class SettingsManager {
         await MessageHelper.notifySettingsUpdate(currentTab, updatedSettings);
       }
 
-      // console.log(`설정 "${key}" 업데이트:`, value);
       return updatedSettings;
     } catch (error) {
-      console.error('설정 업데이트 실패:', error);
       throw error;
     }
   }
@@ -69,10 +66,8 @@ class SettingsManager {
         await MessageHelper.notifySettingsUpdate(currentTab, updatedSettings);
       }
 
-      // console.log('다중 설정 업데이트:', settings);
       return updatedSettings;
     } catch (error) {
-      console.error('다중 설정 업데이트 실패:', error);
       throw error;
     }
   }
@@ -102,10 +97,8 @@ class SettingsManager {
         await MessageHelper.notifySettingsUpdate(currentTab, defaultSettings);
       }
 
-      // console.log('설정이 초기화되었습니다.');
       return defaultSettings;
     } catch (error) {
-      console.error('설정 초기화 실패:', error);
       throw error;
     }
   }
@@ -126,10 +119,8 @@ class SettingsManager {
         StorageHelper.set('wishview_saved_projects', null),
       ]);
 
-      // console.log('모든 데이터가 초기화되었습니다.');
       DOMHelper.showSuccessMessage('모든 데이터가 초기화되었습니다.');
     } catch (error) {
-      console.error('데이터 초기화 실패:', error);
       throw error;
     }
   }

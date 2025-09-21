@@ -229,28 +229,18 @@ class DOMHelper {
    * 예외 상황 처리 시스템 초기화
    */
   static initializeExceptionHandlers() {
-    // console.log('🛡️ [EXCEPTION] 예외 상황 처리 시스템 초기화');
 
     // 페이지 언로드 시 자동 복원
     window.addEventListener('beforeunload', () => {
-      // if (this.isNuclearOptionActive) {
-        // console.log('🚨 [EXCEPTION] 페이지 언로드 감지, 긴급 복원');
-      //   this.restorePageState();
-      // }
     });
 
     // 페이지 숨김 시 자동 복원 (탭 전환, 최소화 등)
     document.addEventListener('visibilitychange', () => {
-      // if (document.hidden && this.isNuclearOptionActive) {
-        // console.log('👁️ [EXCEPTION] 페이지 숨김 감지, 복원 수행');
-      //   this.restorePageState();
-      // }
     });
 
     // ESC 키 이벤트 처리
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' && this.isNuclearOptionActive) {
-        // console.log('⌨️ [EXCEPTION] ESC 키 감지, 모달 닫기');
         const modal = document.querySelector('.wishview-modal');
         if (modal) {
           this.hideModal(modal);
@@ -261,7 +251,6 @@ class DOMHelper {
     // 브라우저 창 크기 변경 시 모달 위치 조정
     window.addEventListener('resize', this.debounce(() => {
       if (this.isNuclearOptionActive) {
-        // console.log('📐 [EXCEPTION] 창 크기 변경 감지, 모달 위치 재조정');
         const modal = document.querySelector('.wishview-modal');
         if (modal) {
           // 모달이 화면 중앙에 오도록 재조정
@@ -273,21 +262,12 @@ class DOMHelper {
 
     // 페이지 오류 시 자동 복원
     window.addEventListener('error', (event) => {
-      // if (this.isNuclearOptionActive) {
-      //   // console.log('💥 [EXCEPTION] 페이지 오류 감지, 안전 복원');
-      //   this.restorePageState();
-      // }
     });
 
     // unhandledrejection 이벤트 처리
     window.addEventListener('unhandledrejection', (event) => {
-      // if (this.isNuclearOptionActive) {
-      //   // console.log('❌ [EXCEPTION] 처리되지 않은 Promise 거부 감지, 안전 복원');
-      //   this.restorePageState();
-      // }
     });
 
-    // console.log('✅ [EXCEPTION] 예외 상황 처리 시스템 초기화 완료');
   }
 
   /**
@@ -295,10 +275,8 @@ class DOMHelper {
    */
   static setupSafetyTimer() {
     if (this.isNuclearOptionActive && !this.safetyTimer) {
-      // console.log('⏰ [SAFETY] 10분 안전 타이머 시작');
 
       this.safetyTimer = setTimeout(() => {
-        // console.log('🚨 [SAFETY] 10분 타이머 만료, 강제 복원');
         this.restorePageState();
         this.showNotification('모달이 너무 오래 열려있어 페이지를 복원했습니다.', 'info');
       }, 10 * 60 * 1000); // 10분
@@ -312,7 +290,6 @@ class DOMHelper {
     if (this.safetyTimer) {
       clearTimeout(this.safetyTimer);
       this.safetyTimer = null;
-      // console.log('⏰ [SAFETY] 안전 타이머 해제');
     }
   }
 
@@ -331,7 +308,6 @@ class DOMHelper {
             );
 
             if (hasModalRemoved && this.isNuclearOptionActive) {
-              // console.log('👀 [MONITOR] 모달 DOM 제거 감지, 페이지 복원');
               this.restorePageState();
             }
           }
@@ -343,7 +319,6 @@ class DOMHelper {
         subtree: true
       });
 
-      // console.log('👁️ [MONITOR] 모달 생명주기 모니터링 시작');
     }
   }
 
@@ -366,25 +341,15 @@ if (typeof window !== 'undefined') {
     if (modalElement) {
       DOMHelper.forceShowModalWithJS(modalElement);
     } else {
-      // console.log('❌ 모달 요소를 찾을 수 없습니다.');
     }
   };
   window.wishviewStatus = () => {
-    // console.log('📊 [STATUS] WishView 상태:', {
-    //   nuclearActive: DOMHelper.isNuclearOptionActive,
-    //   hiddenElements: DOMHelper.hiddenElementsCount,
-    //   hasSafetyTimer: !!DOMHelper.safetyTimer,
-    //   hasModalObserver: !!DOMHelper.modalObserver,
-    //   exceptionHandlersInitialized: DOMHelper.exceptionHandlersInitialized
-    // });
   };
   window.wishviewInit = () => {
     if (!DOMHelper.exceptionHandlersInitialized) {
       DOMHelper.initializeExceptionHandlers();
       DOMHelper.exceptionHandlersInitialized = true;
-      // console.log('✅ 예외 처리 시스템 수동 초기화 완료');
     } else {
-      // console.log('ℹ️ 예외 처리 시스템이 이미 초기화되어 있습니다');
     }
   };
 }
