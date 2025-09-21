@@ -399,3 +399,8 @@ class Fallback {
     }
   }
 }
+
+// Export를 위한 window 객체에 등록
+if (typeof window !== 'undefined') {
+  window.Fallback = Fallback;
+}

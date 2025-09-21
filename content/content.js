@@ -19,7 +19,6 @@
       'WishViewController'
     ];
 
-
     const missingModules = [];
     for (const moduleName of requiredModules) {
       if (typeof window[moduleName] === 'undefined') {
@@ -64,7 +63,6 @@
           }
         });
 
-
         // 초기화 상태 로깅
         const status = controller.getStatus();
       } else {
@@ -97,13 +95,13 @@
       // 2. WishView 시스템 초기화
       await initializeWishView();
 
-
     } catch (error) {
 
       // 개발자 모드에서 추가 디버깅 정보 제공
       if (chrome.runtime?.getManifest()?.key === undefined) {
         console.group('디버깅 정보');
         ['JSONLDParser', 'DOMHelper', 'StorageHelper'].forEach(obj => {
+          // 디버깅 정보 수집 (개발 모드에서만)
         });
         console.groupEnd();
       }
@@ -133,6 +131,7 @@ if (typeof window !== 'undefined') {
     if (window.wishViewInstance) {
       await window.wishViewInstance.forceRefresh();
     } else {
+      // WishView 인스턴스가 없을 때는 무시
     }
   };
 
@@ -151,6 +150,7 @@ if (typeof window !== 'undefined') {
       } else {
       }
     } catch (error) {
+      // WishView 재시작 실패는 선택적 기능이므로 무시
     }
   };
 }

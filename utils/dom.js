@@ -232,10 +232,12 @@ class DOMHelper {
 
     // 페이지 언로드 시 자동 복원
     window.addEventListener('beforeunload', () => {
+      // 페이지 떠날 때 자동 복원 (향후 구현 예정)
     });
 
     // 페이지 숨김 시 자동 복원 (탭 전환, 최소화 등)
     document.addEventListener('visibilitychange', () => {
+      // 페이지 숨김 시 자동 복원 (향후 구현 예정)
     });
 
     // ESC 키 이벤트 처리
@@ -262,10 +264,12 @@ class DOMHelper {
 
     // 페이지 오류 시 자동 복원
     window.addEventListener('error', (event) => {
+      // 페이지 오류 시 자동 복원 (향후 구현 예정)
     });
 
     // unhandledrejection 이벤트 처리
     window.addEventListener('unhandledrejection', (event) => {
+      // Promise rejection 처리 (향후 구현 예정)
     });
 
   }
@@ -341,15 +345,22 @@ if (typeof window !== 'undefined') {
     if (modalElement) {
       DOMHelper.forceShowModalWithJS(modalElement);
     } else {
+      // 모달을 찾을 수 없음
     }
   };
   window.wishviewStatus = () => {
+    return {
+      isNuclearOptionActive: DOMHelper.isNuclearOptionActive,
+      hiddenElementsCount: DOMHelper.hiddenElementsCount,
+      hasModal: !!document.querySelector('.wishview-modal')
+    };
   };
   window.wishviewInit = () => {
     if (!DOMHelper.exceptionHandlersInitialized) {
       DOMHelper.initializeExceptionHandlers();
       DOMHelper.exceptionHandlersInitialized = true;
     } else {
+      // 이미 초기화됨
     }
   };
 }

@@ -123,9 +123,6 @@ class UIManager {
   hideProjectPreview() {
     DOMHelper.hideElement(this.elements.projectPreview);
   }
-
-
-
 }
 
 // 전역 접근을 위한 window 객체에 등록

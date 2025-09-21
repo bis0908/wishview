@@ -66,6 +66,7 @@ class WishViewBackground {
         await this.handleUpdate(details.previousVersion);
       }
     } catch (error) {
+      // 설치/업데이트 과정에서 발생하는 일시적 오류는 무시
     }
   }
 
@@ -92,7 +93,6 @@ class WishViewBackground {
 
     await this.setStorage('wishview_install_info', installData);
 
-
     // 환영 알림 설정 (설치 후 5초 뒤)
     chrome.alarms.create('welcome-notification', { delayInMinutes: 0.1 });
 
@@ -116,7 +116,6 @@ class WishViewBackground {
 
     // 마이그레이션 로직 (필요시)
     await this.migrateData(previousVersion);
-
   }
 
   /**
@@ -160,7 +159,6 @@ class WishViewBackground {
           await this.updateBadge(sender.tab.id, message.text, message.color);
           sendResponse({ success: true });
           break;
-
 
         case 'EXPORT_DATA':
           const exportData = await this.exportAllData();
@@ -219,7 +217,6 @@ class WishViewBackground {
           lastChecked: new Date().toISOString()
         });
 
-
         // 배지 업데이트 (선택적)
         this.updateBadge(tabId, '●', '#3BA3C7');
       }
@@ -276,6 +273,7 @@ class WishViewBackground {
         }, 5000);
       }
     } catch (error) {
+      // 알림 표시 과정에서 발생하는 일시적 오류는 시스템에 영향 없음
     }
   }
 
@@ -319,6 +317,7 @@ class WishViewBackground {
       await this.cleanupOldSavedProjects();
 
     } catch (error) {
+      // 정리 작업 실패는 치명적이지 않음
     }
   }
 
@@ -364,6 +363,7 @@ class WishViewBackground {
       await this.cleanupOldBackups();
 
     } catch (error) {
+      // 백업 과정에서 발생하는 일시적 오류는 무시
     }
   }
 
@@ -403,7 +403,6 @@ class WishViewBackground {
       this.errorLogs = this.errorLogs.slice(-500);
     }
 
-
     // 치명적 에러인 경우 배지로 표시
     if (error.context === 'CRITICAL') {
       this.updateBadge(sender.tab?.id, '!', '#EA4335');
@@ -420,6 +419,7 @@ class WishViewBackground {
         await chrome.action.setBadgeBackgroundColor({ color, tabId });
       }
     } catch (error) {
+      // 배지 표시 실패는 선택적 기능이므로 무시
     }
   }
 
@@ -432,9 +432,9 @@ class WishViewBackground {
         await chrome.action.setBadgeText({ text: '', tabId });
       }
     } catch (error) {
+      // 배지 제거 실패는 선택적 기능이므로 무시
     }
   }
-
 
   /**
    * 모든 데이터 내보내기
@@ -490,7 +490,6 @@ class WishViewBackground {
     // 메모리 정리
     this.errorLogs = [];
     this.activeWishketTabs.clear();
-
   }
 
   /**

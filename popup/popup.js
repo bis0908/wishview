@@ -215,7 +215,6 @@ class WishViewPopup {
     ProjectManager.openWishket();
   }
 
-
   /**
    * 설정 업데이트
    */
@@ -223,6 +222,7 @@ class WishViewPopup {
     try {
       this.settings = await SettingsManager.updateSetting(key, value, this.currentTab);
     } catch (error) {
+      // 설정 업데이트 실패는 일시적 오류이므로 무시
     }
   }
 

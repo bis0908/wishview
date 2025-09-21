@@ -47,7 +47,6 @@ class ProjectManager {
     window.close();
   }
 
-
   /**
    * 프로젝트 모달 표시 요청
    * @param {chrome.tabs.Tab} currentTab - 현재 탭

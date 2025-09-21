@@ -122,12 +122,6 @@ class StorageHelper {
     }
   }
 
-
-
-
-
-
-
   /**
    * 사용자 설정 가져오기
    */
@@ -245,8 +239,6 @@ class StorageHelper {
       return true; // 에러 시 안전하게 카운팅
     }
   }
-
-
 
   /**
    * 모든 데이터 내보내기 (백업용)

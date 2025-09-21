@@ -155,6 +155,7 @@ class WishViewController {
       } else {
       }
     } catch (error) {
+      // 초기 프로젝트 검사 실패는 선택적 기능이므로 무시
     }
   }
 
@@ -318,7 +319,6 @@ class WishViewController {
     // 상태 초기화
     this.isInitialized = false;
     this.initializationPromise = null;
-
   }
 }
 

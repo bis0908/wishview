@@ -202,6 +202,7 @@ class ProjectDataProcessor {
 
 
     } catch (error) {
+      // 통계 업데이트 실패는 핵심 기능에 영향 없음
     }
   }
 

@@ -34,6 +34,7 @@ class DynamicDetector {
 
       this.isInitialized = true;
     } catch (error) {
+      // 동적 감지 초기화 실패는 선택적 기능이므로 무시
     }
   }
 
@@ -173,6 +174,7 @@ class DynamicDetector {
       } else {
       }
     } catch (error) {
+      // 페이지 변경 처리 실패는 일시적 오류이므로 무시
     }
   }
 
@@ -232,7 +234,6 @@ class DynamicDetector {
     this.onPageChange = null;
     this.debouncedUrlCheck = null;
     this.debouncedDomCheck = null;
-
   }
 }
 

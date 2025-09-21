@@ -217,6 +217,7 @@ class MessageHandler {
             await this.projectProcessor.extractAndShowProject(settings);
           }
         } catch (error) {
+          // 재검사 과정에서 발생하는 일시적 오류는 무시
         }
       }, 100);
 
