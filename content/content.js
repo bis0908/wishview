@@ -19,14 +19,12 @@
       'WishViewController'
     ];
 
-    // console.log('WishView 모듈 로드 상태 확인...');
 
     const missingModules = [];
     for (const moduleName of requiredModules) {
       if (typeof window[moduleName] === 'undefined') {
         missingModules.push(moduleName);
       } else {
-        // console.log(`모듈 확인 완료: ${moduleName}`);
       }
     }
 
@@ -34,7 +32,6 @@
       throw new Error(`필수 모듈이 로드되지 않음: ${missingModules.join(', ')}`);
     }
 
-    // console.log('모든 모듈 로드 상태 확인 완료');
   }
 
   /**
@@ -45,7 +42,6 @@
     try {
       // 이미 인스턴스가 있다면 정리
       if (window.wishViewInstance) {
-        // console.log('기존 WishView 인스턴스 정리 중...');
         window.wishViewInstance.destroy();
         window.wishViewInstance = null;
       }
@@ -68,11 +64,9 @@
           }
         });
 
-        // console.log('WishView 시스템 초기화 성공');
 
         // 초기화 상태 로깅
         const status = controller.getStatus();
-        // console.log('WishView 상태:', status);
       } else {
         throw new Error('WishView 컨트롤러 초기화 실패');
       }
@@ -96,7 +90,6 @@
    */
   async function main() {
     try {
-      // console.log('WishView Content Script 시작...');
 
       // 1. 모든 모듈 로드 상태 확인
       await checkModules();
@@ -104,18 +97,13 @@
       // 2. WishView 시스템 초기화
       await initializeWishView();
 
-      // console.log('WishView Content Script 초기화 완료');
 
     } catch (error) {
 
       // 개발자 모드에서 추가 디버깅 정보 제공
       if (chrome.runtime?.getManifest()?.key === undefined) {
         console.group('디버깅 정보');
-        // console.log('현재 URL:', window.location.href);
-        // console.log('Document 상태:', document.readyState);
-        // console.log('사용 가능한 전역 객체들:');
         ['JSONLDParser', 'DOMHelper', 'StorageHelper'].forEach(obj => {
-          // console.log(`- ${obj}:`, typeof window[obj] !== 'undefined' ? '로드됨' : '없음');
         });
         console.groupEnd();
       }
@@ -144,7 +132,6 @@ if (typeof window !== 'undefined') {
   window.refreshWishView = async function() {
     if (window.wishViewInstance) {
       await window.wishViewInstance.forceRefresh();
-      // console.log('WishView 강제 새로고침 완료');
     } else {
     }
   };
@@ -161,7 +148,6 @@ if (typeof window !== 'undefined') {
 
       if (success) {
         window.wishViewInstance = controller;
-        // console.log('WishView 재시작 완료');
       } else {
       }
     } catch (error) {
