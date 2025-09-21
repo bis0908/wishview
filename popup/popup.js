@@ -38,7 +38,9 @@ class WishViewPopup {
       previewDeadline: document.getElementById('previewDeadline'),
       previewTech: document.getElementById('previewTech'),
       previewCloseBtn: document.getElementById('previewCloseBtn'),
-      openProjectBtn: document.getElementById('openProjectBtn')
+      openProjectBtn: document.getElementById('openProjectBtn'),
+
+      versionBadge: document.getElementById('versionBadge')
     };
 
     // UI 관리자 초기화
@@ -63,6 +65,9 @@ class WishViewPopup {
     try {
       this.uiManager.showLoading();
 
+      // 버전 정보 로드
+      this.loadVersionInfo();
+
       // 현재 활성 탭 정보 가져오기
       await this.getCurrentTab();
 
@@ -83,6 +88,24 @@ class WishViewPopup {
     } catch (error) {
       this.uiManager.showError('초기화 중 오류가 발생했습니다.');
       this.uiManager.hideLoading();
+    }
+  }
+
+  /**
+   * 버전 정보 로드
+   */
+  loadVersionInfo() {
+    try {
+      const manifest = chrome.runtime.getManifest();
+      if (manifest && manifest.version) {
+        this.elements.versionBadge.textContent = `v${manifest.version}`;
+      } else {
+        // 버전 정보를 가져올 수 없는 경우 기본값 표시
+        this.elements.versionBadge.textContent = 'v1.0.0';
+      }
+    } catch (error) {
+      // manifest 접근 실패 시 기본값 표시
+      this.elements.versionBadge.textContent = 'v1.0.0';
     }
   }
 

@@ -91,14 +91,14 @@ class DOMHelper {
     const modal = document.createElement('div');
     modal.className = 'compact-modal';
     modal.innerHTML = `
-      <div class="modal-overlay"></div>
+      <div class="modal-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.4);"></div>
       <div class="modal-content">
         <div class="modal-header">
           <h3>${title}</h3>
           <button class="modal-close">×</button>
         </div>
         <div class="modal-body">
-          <p style="white-space: pre-line; line-height: 1.6;">${content}</p>
+          <p style="white-space: pre-line; line-height: 1.6; color: var(--gray-100, #202124); margin: 0;">${content}</p>
         </div>
         <div class="modal-footer">
           <button class="modal-ok">확인</button>
@@ -128,6 +128,8 @@ class DOMHelper {
       max-width: 300px;
       width: 90%;
       padding: 0;
+      position: relative;
+      z-index: 1;
     `;
 
     const modalHeader = modal.querySelector('.modal-header');
@@ -136,6 +138,14 @@ class DOMHelper {
       display: flex;
       justify-content: space-between;
       align-items: center;
+    `;
+
+    const modalTitle = modal.querySelector('.modal-header h3');
+    modalTitle.style.cssText = `
+      color: var(--primary-color, #3BA3C7);
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0;
     `;
 
     const modalBody = modal.querySelector('.modal-body');
@@ -157,7 +167,17 @@ class DOMHelper {
       cursor: pointer;
       padding: 0;
       margin: 0;
+      color: var(--gray-600, #80868B);
+      transition: color 0.2s ease;
     `;
+
+    modalClose.addEventListener('mouseenter', () => {
+      modalClose.style.color = 'var(--gray-800, #3C4043)';
+    });
+
+    modalClose.addEventListener('mouseleave', () => {
+      modalClose.style.color = 'var(--gray-600, #80868B)';
+    });
 
     const modalOk = modal.querySelector('.modal-ok');
     modalOk.style.cssText = `

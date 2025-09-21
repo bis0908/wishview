@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "WishView - 위시켓 프라이빗 매칭 뷰어",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "위시켓 프라이빗 매칭 프로젝트의 숨겨진 업무 내용을 확인할 수 있는 크롬 확장 프로그램",
 
   "permissions": [

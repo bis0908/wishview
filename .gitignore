@@ -220,3 +220,11 @@ $RECYCLE.BIN/
 # claude.md
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,linux,node
+
+# Ai stuff
+
+gemini.md
+claude.md
+documents/**
+design/**
+.claude

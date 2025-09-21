@@ -144,11 +144,11 @@ WishView 버전: v1.0.0
    * 정보 표시
    */
   static showAbout() {
-    const aboutInfo = `WishView v1.0.0
-위시켓 프라이빗 매칭 확장 프로그램
+    const aboutInfo = `WishView
+      위시켓 프라이빗 매칭 확장 프로그램
 
-개발: WishView Team
-라이선스: MIT`;
+      개발: harborcatsoft
+      라이선스: MIT`;
 
     DOMHelper.showCompactModal('프로그램 정보', aboutInfo);
   }
