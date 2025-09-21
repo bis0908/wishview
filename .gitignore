@@ -228,3 +228,5 @@ claude.md
 documents/**
 design/**
 .claude
+
+*.zip
